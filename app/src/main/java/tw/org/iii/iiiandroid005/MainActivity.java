@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
            adapter = new SimpleAdapter(this,data,R.layout.item_test1,
                    from,to);
         listView.setAdapter(adapter);
-        //內容備案
+        //哪個選項被點選
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
