@@ -28,8 +28,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listView= findViewById(R.id.listView);
+
+        listView = findViewById(R.id.listView);
         initListView();
+
     }
     private void initListView(){
         data = new LinkedList<>();
@@ -41,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
             dd.put(from[1],"content"+rand);
             dd.put("detail","Detail"+rand);//列表內資料
             data.add(dd);
+            adapter.notifyDataSetChanged();
+
 
         }
 
@@ -71,6 +75,17 @@ public class MainActivity extends AppCompatActivity {
                 .setMessage(msg)
                 .create()
                 .show();
+
+    }
+
+    public void additem(View view) {
+        HashMap<String,String> dd = new HashMap<>();
+        int rand =(int)(Math.random()*49+100);//列表亂數
+        dd.put(from[0],"Title"+rand);
+        dd.put(from[1],"content"+rand);
+        dd.put("detail","Detail"+rand);//列表內資料
+        data.add(dd);
+        adapter.notifyDataSetChanged();
 
     }
 }
